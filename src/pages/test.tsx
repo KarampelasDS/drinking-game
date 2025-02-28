@@ -1,14 +1,13 @@
 import { get } from "http";
 import { set } from "mongoose";
 import { useEffect, useState } from "react";
+import { Button, Typography } from "@mui/material";
 
 export default function TestPage() {
-  const [questions, setQuestion] = useState([]);
+  const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [currentQuestion, setCurrentQuestion] = useState(
-    "Click the button to get a random question"
-  );
+  const [currentQuestion, setCurrentQuestion] = useState();
   const [spicy, setSpicy] = useState(false);
   const [lang, setLang] = useState("en");
 
@@ -19,7 +18,7 @@ export default function TestPage() {
         if (!response.ok) throw new Error("Failed to fetch questions");
 
         const data = await response.json();
-        setQuestion(data);
+        setQuestions(data);
       } catch (err) {
         setError((err as Error).message);
       } finally {
@@ -51,17 +50,21 @@ export default function TestPage() {
       <div>
         <h1>Random</h1>
         <div className="p-3 bg-gray-100 rounded-md shadow-md text-black">
-          {lang == "en" ? currentQuestion.text_en : currentQuestion.text_gr}
+          {currentQuestion == null
+            ? "Click the button to get a random question!"
+            : lang === "en"
+            ? currentQuestion.text_en
+            : currentQuestion.text_gr}
         </div>
-        <button onClick={getRandom}>Refresh</button>
+        <Button onClick={getRandom}>Refresh</Button>
         <br />
-        <button onClick={() => setSpicy(!spicy)}>
+        <Button onClick={() => setSpicy(!spicy)}>
           Spicy:{spicy ? "true" : "false"}
-        </button>
+        </Button>
         <br />
-        <button onClick={() => setLang(lang === "en" ? "gr" : "en")}>
+        <Button onClick={() => setLang(lang === "en" ? "gr" : "en")}>
           Language:{lang}
-        </button>
+        </Button>
       </div>
     </div>
   );

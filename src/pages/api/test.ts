@@ -8,15 +8,15 @@ export default async function handler(req, res) {
   }
 
   const uri = process.env.MONGODB_URI;
-  console.log(uri);
+  //console.log(uri);
   // Connect to the MongoDB client using the connection string from environment variables
   const client = await MongoClient.connect(uri);
   const db = client.db();
 
   // Access the 'sales' collection in the database
-  const gameCollection = await db.collection("blame");
+  const gamesCollection = await db.collection("blame");
   // Retrieve all documents from the 'sales' collection and convert them to an array
-  const game = await gameCollection.find().toArray();
+  const game = await gamesCollection.find().toArray();
 
   // Close the MongoDB client connection
   client.close();
