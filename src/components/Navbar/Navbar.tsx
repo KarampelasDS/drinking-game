@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar(props) {
   const [navbar, setNavbar] = useState(false);
@@ -21,7 +21,12 @@ export default function Navbar(props) {
         aria-expanded={navbar}
         aria-controls="navbar"
       >
-        <img src="/hamburger.svg" width={40} height={40} />
+        <img
+          src="Images/hamburger.svg"
+          width={40}
+          height={40}
+          alt="Open Sidebar"
+        />
       </button>
 
       <nav>
@@ -34,11 +39,10 @@ export default function Navbar(props) {
               onClick={closeSidebar}
               aria-label="close sidebar"
             >
-              <img src="/close.svg" />
+              <img src="Images/close.svg" alt="Close Sidebar" />
             </button>
           </li>
           <li
-            //className={`${styles.homeLi} ${styles.activeLink}`}
             className={
               props.currentPage == "/"
                 ? `${styles.homeLi} ${styles.activeLink}`

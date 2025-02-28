@@ -8,9 +8,9 @@
   --hover-color: #272832;
   --selected-color: #212129;
   --accent-color: #9543ff;
-  --text-color: #c9c9c9;
+  --text-color: #dcd0d0;
 
-  --background: #11121a;
+  --background: #0a0a14;
   --foreground: #171717;
 
   font-size: 1.5rem;
@@ -31,4 +31,95 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background-color: var(--primary-color);
+}
+
+body {
+  background: linear-gradient(to bottom, #0a0a14 55%, #10181a 100%);
+  background-color: #11121a;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logoHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3rem;
+  flex-direction: column;
+  z-index: -1;
+}
+
+.gamesTitle {
+  font-size: 2rem;
+  margin-top: -6rem;
+  border-top: 1px solid white;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.games {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.gameButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0rem;
+}
+
+.gameButton {
+  flex: 1 1 30%;
+  max-width: 30%;
+  transition: all 50ms ease-in;
+}
+
+#gameButton1 {
+  padding-bottom: 4rem;
+  height: 10rem;
+}
+
+#gameButton2 {
+  padding-bottom: 6rem;
+  height: 13rem;
+}
+
+#gameButton3 {
+  height: 8rem;
+  padding-bottom: 1rem;
+}
+
+.gameButton:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+  .gameButton {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameButton {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }

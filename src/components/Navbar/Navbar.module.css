@@ -50,7 +50,7 @@ nav .homeLi {
   padding: 1em;
   cursor: pointer;
   display: none;
-  #justify-content: end;
+  justify-content: end;
   width: 100%;
 }
 
