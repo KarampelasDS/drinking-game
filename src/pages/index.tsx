@@ -6,7 +6,11 @@ export default function Home() {
   return (
     <div className="home">
       <div className="logoHeader">
-        <img src="/Images/Logo/LogoGradient.png" />
+        <img src="/Images/Logo/LogoText.png" />
+        <img src="/Images/Logo/Logo.png" />
+        <h3 className="logoText">
+          The ultimate drinking game for you <br /> and your friends!
+        </h3>
       </div>
       <div className="games">
         <div className="gamesTitle">

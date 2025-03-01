@@ -21,12 +21,7 @@ export default function Navbar(props) {
         aria-expanded={navbar}
         aria-controls="navbar"
       >
-        <img
-          src="Images/hamburger.svg"
-          width={40}
-          height={40}
-          alt="Open Sidebar"
-        />
+        <img src="Images/hamburger.svg" width={40} height={40} />
       </button>
 
       <nav>
@@ -39,7 +34,7 @@ export default function Navbar(props) {
               onClick={closeSidebar}
               aria-label="close sidebar"
             >
-              <img src="Images/close.svg" alt="Close Sidebar" />
+              <img src="Images/close.svg" />
             </button>
           </li>
           <li
