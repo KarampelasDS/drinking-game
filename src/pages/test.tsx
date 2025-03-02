@@ -1,7 +1,8 @@
 import { get } from "http";
 import { set } from "mongoose";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Button, Typography } from "@mui/material";
+import { useLangContext } from "@/components/LangContext";
 
 export default function TestPage() {
   const [questions, setQuestions] = useState([]);
@@ -9,7 +10,7 @@ export default function TestPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState();
   const [spicy, setSpicy] = useState(false);
-  const [lang, setLang] = useState("en");
+  const { lang, toggleLang } = useLangContext();
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -62,10 +63,9 @@ export default function TestPage() {
           Spicy:{spicy ? "true" : "false"}
         </Button>
         <br />
-        <Button onClick={() => setLang(lang === "en" ? "gr" : "en")}>
-          Language:{lang}
-        </Button>
+        <Button onClick={toggleLang}>Language:{lang}</Button>
       </div>
+      <div>Current languageContext is {lang}</div>
     </div>
   );
 }

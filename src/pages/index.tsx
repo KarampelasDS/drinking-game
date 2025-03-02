@@ -1,20 +1,28 @@
 import React from "react";
 import { Button } from "@mui/material";
 import Navbar from "@/components/Navbar/Navbar";
+import { useLangContext } from "@/components/LangContext";
+import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 
 export default function Home() {
+  const { lang, setLang } = useLangContext();
   return (
     <div className="home">
+      <LanguageToggle />
       <div className="logoHeader">
         <img src="/Images/Logo/LogoText.png" />
         <img src="/Images/Logo/Logo.png" />
         <h3 className="logoText">
-          The ultimate drinking game for you <br /> and your friends!
+          {lang === "en"
+            ? "The ultimate drinking game for you and your friends!"
+            : "Το απόλυτο παιχνίδι ποτού για εσάς και τους φίλους σας!"}
         </h3>
       </div>
       <div className="games">
         <div className="gamesTitle">
-          <h1>Pick your poison!</h1>
+          <h1>
+            {lang === "en" ? "Pick your poison!" : "Διάλεξε το δηλητήριο σου!"}
+          </h1>
         </div>
         <div className="gameButtons">
           <img
