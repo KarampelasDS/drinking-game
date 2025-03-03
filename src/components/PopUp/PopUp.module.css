@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+
+.container {
+  display: flex;
+  position: fixed;
+  background-color: var(--background);
+  border: 2px solid var(--accent-color);
+  width: 80%;
+  height: 85%;
+  top: 0;
+  z-index: 10;
+  margin-top: 4rem;
+  flex-direction: column;
+  border-radius: 12px;
+  align-items: center;
+}
+
+.container img {
+  margin-bottom: 1rem;
+}
+
+.header {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  display: flex;
+  width: 96%;
+  text-align: center;
+  justify-content: center;
+  font-family: Hammersmith One;
+  align-items: center;
+}
+
+.headerText {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Poppins, Calibri;
+}
+
+.players {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.closeButton {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.paragraph {
+  border-top: 2px solid var(--text-color);
+  text-align: center;
+  width: 85%;
+  overflow: auto;
+  overflow-x: hidden;
+  line-height: 2rem;
+}
+
+.paragraph p::before {
+  content: "•";
+  margin-right: 1rem;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 750px) {
+  .header {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .header {
+    font-size: 1.1rem;
+  }
+}

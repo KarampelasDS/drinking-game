@@ -1,3 +1,9 @@
+import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
+
 export default function Gamemodes() {
-  return <h1>Gamemodes Page</h1>;
+  return (
+    <>
+      <LanguageToggle />
+    </>
+  );
 }

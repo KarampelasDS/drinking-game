@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.Button {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 28px;
+  padding: 0.5rem 6rem;
+  transition: all 50ms ease-in;
+  cursor: pointer;
+  font-family: Poppins, Calibri;
+  text-align: center;
+}
+
+.Button:hover {
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 650px) {
+  .Button {
+    padding: 0.5rem 1rem;
+  }
+}

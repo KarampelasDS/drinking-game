@@ -12,7 +12,6 @@ export default function LanguageToggle() {
         <Switch checked={lang === "gr" ? true : false} onClick={toggleLang} />
         <img src="/Images/Flags/GreekFlag.svg" width={40} />
       </div>
-      <h2>Lanuage is {lang}</h2>
     </div>
   );
 }
