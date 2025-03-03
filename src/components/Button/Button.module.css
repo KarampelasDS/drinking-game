@@ -10,6 +10,7 @@
   cursor: pointer;
   font-family: Poppins, Calibri;
   text-align: center;
+  user-select: none;
 }
 
 .Button:hover {

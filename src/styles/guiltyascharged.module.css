@@ -1,0 +1,59 @@
+#currentQuestion {
+  min-height: 10rem;
+  overflow: auto;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spicyToggle {
+  display: flex;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: all 50ms ease-in-out;
+  user-select: none;
+}
+
+.spicyToggle:hover {
+  transform: scale(1.05);
+}
+
+.titleToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+#textHeader {
+  font-size: 1.6rem;
+}
+
+#nextButton {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+  #currentQuestion {
+    font-size: 1.5rem;
+  }
+
+  #textHeader {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
+
+  .titleToggle {
+    flex-direction: column;
+  }
+
+  #imageHeader {
+    width: 16rem;
+    height: 4rem;
+    transform: scale(1.2);
+    aspect-ratio: 16/9;
+  }
+}
