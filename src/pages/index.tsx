@@ -183,10 +183,6 @@ export default function Home() {
                       That player then reads the next question and chooses who
                       to pass the device to next.
                     </p>
-                    <p>
-                      The game continues, leading to hilarious and sometimes
-                      brutal revelations!
-                    </p>
                   </>
                 ) : (
                   <>
@@ -208,10 +204,6 @@ export default function Home() {
                     <p>
                       Ο παίκτης που πήρε τη συσκευή διαβάζει την επόμενη ερώτηση
                       και επιλέγει σε ποιον θα τη δώσει μετά.
-                    </p>
-                    <p>
-                      Το παιχνίδι συνεχίζεται, οδηγώντας σε ξεκαρδιστικές και
-                      μερικές φορές άβολες αποκαλύψεις!
                     </p>
                   </>
                 )
