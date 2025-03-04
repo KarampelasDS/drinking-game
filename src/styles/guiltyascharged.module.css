@@ -1,3 +1,15 @@
+#container {
+  background: linear-gradient(
+    0.25turn,
+    #0f4e7f 0%,
+    var(--background) 35%,
+    var(--background) 65%,
+    #820101 100%
+  );
+  min-width: 100%;
+  min-height: 100vh;
+}
+
 #currentQuestion {
   min-height: 10rem;
   overflow: auto;
@@ -5,6 +17,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Poppins, Calibri;
+  font-weight: 600;
+  color: black;
+  border: 4px solid var(--accent-color);
+  max-width: 40rem;
+  justify-self: center;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .spicyToggle {
@@ -13,6 +38,11 @@
   cursor: pointer;
   transition: all 50ms ease-in-out;
   user-select: none;
+  background-color: #313c43;
+  border: 4px solid #444f57;
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .spicyToggle:hover {
@@ -24,10 +54,13 @@
   justify-content: space-between;
   align-items: center;
   color: white;
+  width: 50%;
+  flex-direction: column;
 }
 
 #textHeader {
   font-size: 1.6rem;
+  justify-self: center;
 }
 
 #nextButton {
@@ -42,8 +75,9 @@
   }
 
   #textHeader {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
+    width: 13rem;
   }
 
   .titleToggle {

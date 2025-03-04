@@ -47,9 +47,9 @@ export default function Guiltyascharged() {
   };
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
+    <div className="p-6 max-w-2xl mx-auto" id={styles.container}>
       <LanguageToggle />
-      <div className="flex justify-center w-[100%] mt-6 mb-12">
+      <div className="flex justify-center w-[100%] mt-2 mb-12">
         <img
           id={styles.imageHeader}
           src="/Images/GuiltyAsCharged.png"
@@ -60,14 +60,18 @@ export default function Guiltyascharged() {
       {loading == true ? (
         "loading..."
       ) : (
-        <div>
+        <div className={styles.mainContainer}>
           <div className={styles.titleToggle}>
             <div
               className={styles.spicyToggle}
               onClick={() => setSpicy(!spicy)}
             >
               <TbRating18Plus size={40} />:
-              {spicy ? <FaCheck size={40} /> : <FaXmark size={40} />}
+              {spicy ? (
+                <FaCheck size={40} color="green" />
+              ) : (
+                <FaXmark size={40} color="red" />
+              )}
             </div>
             <h1 className="text-center mb-4 italic" id={styles.textHeader}>
               {lang === "en"
@@ -87,7 +91,7 @@ export default function Guiltyascharged() {
               ? currentQuestion.text_en
               : currentQuestion.text_gr}
           </div>
-          <div className="my-4" id={styles.nextButton}>
+          <div className="my-1" id={styles.nextButton}>
             <Button text="Next Question" function={getRandom} />
           </div>
           <br />
