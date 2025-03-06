@@ -2,13 +2,13 @@ import { useEffect, useState, useContext } from "react";
 import Button from "@/components/Button/Button";
 import { Button as MuiButton } from "@mui/material";
 import { useLangContext } from "@/components/LangContext";
-import styles from "../styles/guiltyascharged.module.css";
+import styles from "../styles/drinkreaper.module.css";
 import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 import { TbRating18Plus } from "react-icons/tb";
 import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 
-export default function Guiltyascharged() {
+export default function Drinkreaper() {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export default function Guiltyascharged() {
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        const response = await fetch("/api/guiltyascharged");
+        const response = await fetch("/api/drinkreaper");
         if (!response.ok) throw new Error("Failed to fetch questions");
 
         const data = await response.json();
@@ -49,11 +49,11 @@ export default function Guiltyascharged() {
   return (
     <div className="p-6 max-w-2xl mx-auto" id={styles.container}>
       <LanguageToggle />
-      <div className="flex justify-center w-[100%] mt-2 mb-12">
+      <div className="flex justify-center w-[100%] mt-2 mb-1">
         <img
           id={styles.imageHeader}
-          src="/Images/GuiltyAsCharged.png"
-          width={700}
+          src="/Images/DrinkReaper.png"
+          width={600}
         />
       </div>
 
@@ -83,7 +83,7 @@ export default function Guiltyascharged() {
               className={styles.spicyToggle}
               onClick={() => setSpicy(!spicy)}
             >
-              <TbRating18Plus size={45} />:
+              <TbRating18Plus size={45} color="black" />:
               {spicy ? (
                 <FaCheck size={45} color="green" />
               ) : (
@@ -91,9 +91,13 @@ export default function Guiltyascharged() {
               )}
             </div>
             <h1 className="text-center mb-4 italic" id={styles.textHeader}>
-              {lang === "en"
-                ? "Who's most likely to..."
-                : "Ποιός είναι πιο πιθανόν να..."}
+              {lang === "en" ? "Pass the mouse to..." : "Δώσε το ποντίκι σε..."}
+            </h1>
+            <h1
+              className="text-center mb-4 italic"
+              id={styles.textHeaderMobile}
+            >
+              {lang === "en" ? "Pass the phone to..." : "Δώσε το κινητό σε..."}
             </h1>
             <h1 />
             <h1 />
