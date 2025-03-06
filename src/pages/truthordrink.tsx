@@ -2,24 +2,25 @@ import { useEffect, useState, useContext } from "react";
 import Button from "@/components/Button/Button";
 import { Button as MuiButton } from "@mui/material";
 import { useLangContext } from "@/components/LangContext";
-import styles from "../styles/drinkreaper.module.css";
+import styles from "../styles/truthordrink.module.css";
 import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 import { TbRating18Plus } from "react-icons/tb";
 import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 
-export default function Drinkreaper() {
+export default function Truthordrink() {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState();
+  const [mode, setMode] = useState("");
   const [spicy, setSpicy] = useState(false);
   const { lang, toggleLang } = useLangContext();
 
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        const response = await fetch("/api/drinkreaper");
+        const response = await fetch("/api/truthordrink");
         if (!response.ok) throw new Error("Failed to fetch questions");
 
         const data = await response.json();
@@ -34,26 +35,44 @@ export default function Drinkreaper() {
     fetchQuestions();
   }, []);
 
-  const getRandom = () => {
+  const getTruth = () => {
     let question = "";
     if (!spicy) {
-      let safeQuestions = questions.filter((q) => q.spicy === false);
-      question =
-        safeQuestions[Math.floor(Math.random() * safeQuestions.length)];
+      let safeTruths = questions.filter(
+        (q) => q.spicy === false && q.category === "truth"
+      );
+      question = safeTruths[Math.floor(Math.random() * safeTruths.length)];
     } else {
-      question = questions[Math.floor(Math.random() * questions.length)];
+      let unsafeTruths = questions.filter((q) => q.category === "truth");
+      question = unsafeTruths[Math.floor(Math.random() * unsafeTruths.length)];
     }
     setCurrentQuestion(question);
+    setMode("truth");
+  };
+
+  const getDare = () => {
+    let question = "";
+    if (!spicy) {
+      let safeDares = questions.filter(
+        (q) => q.spicy === false && q.category === "dare"
+      );
+      question = safeDares[Math.floor(Math.random() * safeDares.length)];
+    } else {
+      let unsafeDares = questions.filter((q) => q.category === "dare");
+      question = unsafeDares[Math.floor(Math.random() * unsafeDares.length)];
+    }
+    setCurrentQuestion(question);
+    setMode("dare");
   };
 
   return (
     <div className="p-6 max-w-2xl mx-auto" id={styles.container}>
       <LanguageToggle />
-      <div className="flex justify-center w-[100%] mt-2 mb-1">
+      <div className="flex justify-center w-[100%]  mb-12">
         <img
           id={styles.imageHeader}
-          src="/Images/DrinkReaper.png"
-          width={600}
+          src="/Images/TruthOrDrink.png"
+          width={500}
         />
       </div>
 
@@ -83,43 +102,47 @@ export default function Drinkreaper() {
               className={styles.spicyToggle}
               onClick={() => setSpicy(!spicy)}
             >
-              <TbRating18Plus size={45} color="white" />:
+              <TbRating18Plus size={45} />:
               {spicy ? (
                 <FaCheck size={45} color="green" />
               ) : (
                 <FaXmark size={45} color="red" />
               )}
             </div>
-            <h1 className="text-center mb-4 italic" id={styles.textHeader}>
-              {lang === "en" ? "Pass the mouse to..." : "Δώσε το ποντίκι σε..."}
-            </h1>
-            <h1
-              className="text-center mb-4 italic"
-              id={styles.textHeaderMobile}
-            >
-              {lang === "en" ? "Pass the phone to..." : "Δώσε το κινητό σε..."}
-            </h1>
-            <h1 />
-            <h1 />
           </div>
-          <div
-            className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
-            id={styles.currentQuestion}
-          >
-            {currentQuestion == null
-              ? lang == "en"
-                ? "Click the button to get a random question!"
-                : "Πάτα το κουμπί για μια τυχαία ερώτηση!"
-              : lang === "en"
-              ? currentQuestion.text_en
-              : currentQuestion.text_gr}
-          </div>
-          <div className="my-1" id={styles.nextButton}>
-            <Button
-              text={lang == "en" ? "Next Question" : "Επόμενη Ερώτηση"}
-              function={getRandom}
-            />
-          </div>
+          {mode == "" ? (
+            <div className="my-1" id={styles.selectionButtons}>
+              <Button
+                text={lang == "en" ? "Truth" : "Αλήθεια"}
+                function={getTruth}
+              />
+              <Button
+                text={lang == "en" ? "Dare" : "Θάρρος"}
+                function={getDare}
+              />
+            </div>
+          ) : (
+            <>
+              <div
+                className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
+                id={styles.currentQuestion}
+              >
+                {currentQuestion == null
+                  ? lang == "en"
+                    ? "Click the button to get a random question!"
+                    : "Πάτα το κουμπί για μια τυχαία ερώτηση!"
+                  : lang === "en"
+                  ? currentQuestion.text_en
+                  : currentQuestion.text_gr}
+              </div>
+              <div className="my-1" id={styles.nextButton}>
+                <Button
+                  text={lang == "en" ? "Next Question" : "Επόμενη Ερώτηση"}
+                  function={() => setMode("")}
+                />
+              </div>
+            </>
+          )}
           <br />
           <br />
         </div>
