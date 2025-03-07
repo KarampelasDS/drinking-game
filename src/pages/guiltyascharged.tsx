@@ -15,6 +15,7 @@ export default function Guiltyascharged() {
   const [currentQuestion, setCurrentQuestion] = useState();
   const [spicy, setSpicy] = useState(false);
   const { lang, toggleLang } = useLangContext();
+  const [bilingualMode, setBilingualMode] = useState(false);
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -93,7 +94,7 @@ export default function Guiltyascharged() {
             <h1 className="text-center mb-4 italic" id={styles.textHeader}>
               {lang === "en"
                 ? "Who's most likely to..."
-                : "Ποιός είναι πιο πιθανόν να..."}
+                : "Ποιός είναι πιο πιθανόν..."}
             </h1>
             <h1 />
             <h1 />
@@ -104,8 +105,8 @@ export default function Guiltyascharged() {
           >
             {currentQuestion == null
               ? lang == "en"
-                ? "Click the button to get a random question!"
-                : "Πάτα το κουμπί για μια τυχαία ερώτηση!"
+                ? "(Click the button to get a random question!)"
+                : "(Πάτα το κουμπί για μια τυχαία ερώτηση!)"
               : lang === "en"
               ? currentQuestion.text_en
               : currentQuestion.text_gr}

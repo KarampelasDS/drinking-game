@@ -35,16 +35,25 @@ export default function Truthordrink() {
     fetchQuestions();
   }, []);
 
+  const getRandomQuestion = (array) => {
+    if (array.length === 0) return null; // Handle empty array case
+    // Pick a random index using Math.random()
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+  };
+
   const getTruth = () => {
     let question = "";
     if (!spicy) {
       let safeTruths = questions.filter(
         (q) => q.spicy === false && q.category === "truth"
       );
-      question = safeTruths[Math.floor(Math.random() * safeTruths.length)];
+      // Use truly random selection
+      question = getRandomQuestion(safeTruths);
     } else {
       let unsafeTruths = questions.filter((q) => q.category === "truth");
-      question = unsafeTruths[Math.floor(Math.random() * unsafeTruths.length)];
+      // Use truly random selection
+      question = getRandomQuestion(unsafeTruths);
     }
     setCurrentQuestion(question);
     setMode("truth");
@@ -56,10 +65,12 @@ export default function Truthordrink() {
       let safeDares = questions.filter(
         (q) => q.spicy === false && q.category === "dare"
       );
-      question = safeDares[Math.floor(Math.random() * safeDares.length)];
+      // Use truly random selection
+      question = getRandomQuestion(safeDares);
     } else {
       let unsafeDares = questions.filter((q) => q.category === "dare");
-      question = unsafeDares[Math.floor(Math.random() * unsafeDares.length)];
+      // Use truly random selection
+      question = getRandomQuestion(unsafeDares);
     }
     setCurrentQuestion(question);
     setMode("dare");
