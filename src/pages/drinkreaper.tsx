@@ -15,6 +15,7 @@ export default function Drinkreaper() {
   const [currentQuestion, setCurrentQuestion] = useState();
   const [spicy, setSpicy] = useState(false);
   const { lang, toggleLang } = useLangContext();
+  const [bilingualMode, setBilingualMode] = useState(false);
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -32,7 +33,14 @@ export default function Drinkreaper() {
     }
 
     fetchQuestions();
+    window.addEventListener("keydown", handleKeyPress);
   }, []);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      setBilingualMode((prev) => !prev);
+    }
+  };
 
   const getRandom = () => {
     let question = "";
@@ -102,17 +110,55 @@ export default function Drinkreaper() {
             <h1 />
             <h1 />
           </div>
-          <div
-            className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
-            id={styles.currentQuestion}
-          >
-            {currentQuestion == null
-              ? lang == "en"
-                ? "Click the button to get a random question!"
-                : "Πάτα το κουμπί για μια τυχαία ερώτηση!"
-              : lang === "en"
-              ? currentQuestion.text_en
-              : currentQuestion.text_gr}
+          <div className="flex justify-center gap-1">
+            {bilingualMode ? (
+              currentQuestion == null ? (
+                <>
+                  <div
+                    className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
+                    id={styles.currentQuestion}
+                  >
+                    (Click the button to get a random question!)
+                  </div>
+                  <div
+                    className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
+                    id={styles.currentQuestion}
+                  >
+                    (Πάτα το κουμπί για μια τυχαία ερώτηση!)
+                  </div>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <div
+                    className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
+                    id={styles.currentQuestion}
+                  >
+                    {currentQuestion.text_en}
+                  </div>{" "}
+                  <br />{" "}
+                  <div
+                    className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
+                    id={styles.currentQuestion}
+                  >
+                    {currentQuestion.text_gr}
+                  </div>
+                </>
+              )
+            ) : (
+              <div
+                className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
+                id={styles.currentQuestion}
+              >
+                {currentQuestion == null
+                  ? lang == "en"
+                    ? "(Click the button to get a random question!)"
+                    : "(Πάτα το κουμπί για μια τυχαία ερώτηση!)"
+                  : lang === "en"
+                  ? currentQuestion.text_en
+                  : currentQuestion.text_gr}
+              </div>
+            )}
           </div>
           <div className="my-1" id={styles.nextButton}>
             <Button
