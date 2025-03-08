@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 import styles from "./PopUp.module.css";
 import { FaUser } from "react-icons/fa";
 import { useLangContext } from "../LangContext";
+import Image from "next/image";
 
 export default function PopUp(props) {
   const { lang } = useLangContext();
@@ -17,13 +18,21 @@ export default function PopUp(props) {
           <h1 className={styles.headerText}>
             {lang === "en" ? "How to play:" : "Πως να παίξετε:"}
           </h1>
-          <img
+          <Image
             className={styles.closeButton}
             onClick={props.closeFunction}
             src="/Images/close.svg"
+            width={100}
+            height={100}
+            alt=""
           />
         </div>
-        <img src={props.image} width={props.imageSize} />
+        <Image
+          src={props.image}
+          width={props.imageSize}
+          height={props.imageSize}
+          alt=""
+        />
         <p className={styles.paragraph}>{props.text}</p>
         <Button
           link={props.link}

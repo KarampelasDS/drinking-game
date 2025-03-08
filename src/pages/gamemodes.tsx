@@ -2,6 +2,7 @@ import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 import styles from "../styles/gamemodes.module.css";
 import { useLangContext } from "@/components/LangContext";
 import Button from "@/components/Button/Button";
+import Image from "next/image";
 
 export default function Gamemodes() {
   const { lang } = useLangContext();
@@ -10,7 +11,13 @@ export default function Gamemodes() {
       <LanguageToggle />
       <div className={styles.container}>
         <div className={styles.game}>
-          <img className={styles.gameImage} src="/Images/GuiltyAsCharged.png" />
+          <Image
+            className={styles.gameImage}
+            src="/Images/GuiltyAsCharged.png"
+            width={500}
+            height={100}
+            alt=""
+          />
           <div className={styles.gameDescription}>
             {lang === "en" ? (
               <>
@@ -18,7 +25,9 @@ export default function Gamemodes() {
                   In <strong>Guilty as Charged</strong>, a question or scenario
                   will appear on the screen
                 </p>
-                <p>(e.g., 'Who is most likely to skip a workout?').</p>
+                <p>
+                  (e.g., &apos;Who is most likely to skip a workout?&apos;).
+                </p>
                 <p>
                   Players will openly point to the person they think the
                   question applies to the most.
@@ -40,8 +49,8 @@ export default function Gamemodes() {
                   θα εμφανιστεί στην οθόνη
                 </p>
                 <p>
-                  (π.χ., ' Ποιος είναι πιο πιθανό να παραλείψει την προπόνηση;
-                  ').
+                  (π.χ., &apos; Ποιος είναι πιο πιθανό να παραλείψει την
+                  προπόνηση; &apos;).
                 </p>
                 <p>
                   Οι παίκτες δείχνουν ανοιχτά το άτομο στο οποίο θεωρούν ότι
@@ -65,7 +74,13 @@ export default function Gamemodes() {
           />
         </div>
         <div className={styles.game}>
-          <img className={styles.gameImage} src="/Images/TruthOrDrink.png" />
+          <Image
+            className={styles.gameImage}
+            src="/Images/TruthOrDrink.png"
+            width={500}
+            height={100}
+            alt=""
+          />
           <div className={styles.gameDescription}>
             {lang === "en" ? (
               <>
@@ -115,10 +130,13 @@ export default function Gamemodes() {
           />
         </div>
         <div className={styles.game} id={styles.DrinkReaper}>
-          <img
+          <Image
             className={styles.gameImage}
             src="/Images/DrinkReaper.png"
             id={styles.gameImageDrinkReaper}
+            width={500}
+            height={100}
+            alt=""
           />
           <div className={styles.gameDescription} id={styles.DrinkReaperButton}>
             {lang === "en" ? (
@@ -130,13 +148,13 @@ export default function Gamemodes() {
                 <p>
                   A player starts by reading a statement like{" "}
                   <em>
-                    "Hand the device to the person who is most likely to be late
-                    to their own wedding."
+                    &apos;Hand the device to the person who is most likely to be
+                    late to their own wedding.&apos;
                   </em>
                 </p>
                 <p>
                   The device is then handed to the chosen person, who must take
-                  a sip as their "punishment."
+                  a sip as their &apos;punishment.&apos;
                 </p>
                 <p>
                   That player then reads the next question and chooses who to
@@ -152,13 +170,13 @@ export default function Gamemodes() {
                 <p>
                   Ένας παίκτης ξεκινά διαβάζοντας μια δήλωση όπως{" "}
                   <em>
-                    "Δώσε τη συσκευή στο άτομο που είναι πιο πιθανό να αργήσει
-                    στον ίδιο του τον γάμο."
+                    &apos;Δώσε τη συσκευή στο άτομο που είναι πιο πιθανό να
+                    αργήσει στον ίδιο του τον γάμο.&apos;
                   </em>
                 </p>
                 <p>
                   Η συσκευή δίνεται στο επιλεγμένο άτομο, το οποίο πρέπει να
-                  πιει μια γουλιά ως "τιμωρία."
+                  πιει μια γουλιά ως &apos;τιμωρία.&apos;
                 </p>
                 <p>
                   Ο παίκτης που πήρε τη συσκευή διαβάζει την επόμενη ερώτηση και

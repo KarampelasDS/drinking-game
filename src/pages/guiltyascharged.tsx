@@ -1,12 +1,12 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/Button/Button";
-import { Button as MuiButton } from "@mui/material";
 import { useLangContext } from "@/components/LangContext";
 import styles from "../styles/guiltyascharged.module.css";
 import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 import { TbRating18Plus } from "react-icons/tb";
 import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Guiltyascharged() {
   const [questions, setQuestions] = useState([]);
@@ -14,7 +14,7 @@ export default function Guiltyascharged() {
   const [error, setError] = useState<string | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState();
   const [spicy, setSpicy] = useState(false);
-  const { lang, toggleLang } = useLangContext();
+  const { lang } = useLangContext();
   const [bilingualMode, setBilingualMode] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Guiltyascharged() {
   const getRandom = () => {
     let question = "";
     if (!spicy) {
-      let safeQuestions = questions.filter((q) => q.spicy === false);
+      const safeQuestions = questions.filter((q) => q.spicy === false);
       question =
         safeQuestions[Math.floor(Math.random() * safeQuestions.length)];
     } else {
@@ -58,10 +58,12 @@ export default function Guiltyascharged() {
     <div className="p-6 max-w-2xl mx-auto" id={styles.container}>
       <LanguageToggle />
       <div className="flex justify-center w-[100%] mt-2 mb-12">
-        <img
+        <Image
           id={styles.imageHeader}
           src="/Images/GuiltyAsCharged.png"
           width={700}
+          height={100}
+          alt=""
         />
       </div>
 

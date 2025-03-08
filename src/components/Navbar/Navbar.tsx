@@ -1,4 +1,6 @@
 import styles from "./Navbar.module.css";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar(props) {
@@ -21,7 +23,7 @@ export default function Navbar(props) {
         aria-expanded={navbar}
         aria-controls="navbar"
       >
-        <img src="Images/hamburger.svg" width={40} height={40} />
+        <Image src="Images/hamburger.svg" width={40} height={40} alt="" />
       </button>
 
       <nav>
@@ -34,7 +36,7 @@ export default function Navbar(props) {
               onClick={closeSidebar}
               aria-label="close sidebar"
             >
-              <img src="Images/close.svg" />
+              <Image src="Images/close.svg" width={40} height={40} alt="" />
             </button>
           </li>
           <li
@@ -44,22 +46,22 @@ export default function Navbar(props) {
                 : styles.homeLi
             }
           >
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li
             className={
               props.currentPage == "/gamemodes" ? styles.activeLink : ""
             }
           >
-            <a href="/gamemodes">Gamemodes</a>
+            <Link href="/gamemodes">Gamemodes</Link>
           </li>
           <li
             className={props.currentPage == "/contact" ? styles.activeLink : ""}
           >
-            <a href="/contact">Contact</a>
+            <Link href="/contact">Contact</Link>
           </li>
           <li className={styles.accentLink}>
-            <a href="/donate">Donate</a>
+            <Link href="/donate">Donate</Link>
           </li>
         </ul>
         <div

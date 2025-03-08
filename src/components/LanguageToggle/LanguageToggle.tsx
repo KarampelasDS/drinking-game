@@ -1,6 +1,7 @@
 import { Switch } from "@mui/material";
 import styles from "./LanguageToggle.module.css";
 import { useLangContext } from "@/components/LangContext";
+import Image from "next/image";
 
 export default function LanguageToggle() {
   const { lang, toggleLang } = useLangContext();
@@ -8,9 +9,14 @@ export default function LanguageToggle() {
   return (
     <div className={styles.container}>
       <div className={styles.languageToggle}>
-        <img src="/Images/Flags/UKFlag.svg" width={40} />
+        <Image src="/Images/Flags/UKFlag.svg" width={40} height={60} alt="" />
         <Switch checked={lang === "gr" ? true : false} onClick={toggleLang} />
-        <img src="/Images/Flags/GreekFlag.svg" width={40} />
+        <Image
+          src="/Images/Flags/GreekFlag.svg"
+          width={40}
+          height={60}
+          alt=""
+        />
       </div>
     </div>
   );

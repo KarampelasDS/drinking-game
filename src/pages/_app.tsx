@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
     <>
+      <title>Bottoms Up!</title>
       <LangProvider>
         <Navbar currentPage={router.pathname} />
         <Component {...pageProps} />

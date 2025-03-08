@@ -2,7 +2,7 @@ import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 import { useLangContext } from "@/components/LangContext";
 
 export default function Contact() {
-  const { lang, toggleLang } = useLangContext();
+  const { lang } = useLangContext();
   return (
     <>
       <LanguageToggle />

@@ -1,12 +1,12 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/Button/Button";
-import { Button as MuiButton } from "@mui/material";
 import { useLangContext } from "@/components/LangContext";
 import styles from "../styles/truthordrink.module.css";
 import LanguageToggle from "@/components/LanguageToggle/LanguageToggle";
 import { TbRating18Plus } from "react-icons/tb";
 import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Truthordrink() {
   const [questions, setQuestions] = useState([]);
@@ -15,7 +15,7 @@ export default function Truthordrink() {
   const [currentQuestion, setCurrentQuestion] = useState();
   const [mode, setMode] = useState("");
   const [spicy, setSpicy] = useState(false);
-  const { lang, toggleLang } = useLangContext();
+  const { lang } = useLangContext();
   const [bilingualMode, setBilingualMode] = useState(false);
 
   useEffect(() => {
@@ -53,13 +53,13 @@ export default function Truthordrink() {
   const getTruth = () => {
     let question = "";
     if (!spicy) {
-      let safeTruths = questions.filter(
+      const safeTruths = questions.filter(
         (q) => q.spicy === false && q.category === "truth"
       );
       // Use truly random selection
       question = getRandomQuestion(safeTruths);
     } else {
-      let unsafeTruths = questions.filter((q) => q.category === "truth");
+      const unsafeTruths = questions.filter((q) => q.category === "truth");
       // Use truly random selection
       question = getRandomQuestion(unsafeTruths);
     }
@@ -70,13 +70,13 @@ export default function Truthordrink() {
   const getDare = () => {
     let question = "";
     if (!spicy) {
-      let safeDares = questions.filter(
+      const safeDares = questions.filter(
         (q) => q.spicy === false && q.category === "dare"
       );
       // Use truly random selection
       question = getRandomQuestion(safeDares);
     } else {
-      let unsafeDares = questions.filter((q) => q.category === "dare");
+      const unsafeDares = questions.filter((q) => q.category === "dare");
       // Use truly random selection
       question = getRandomQuestion(unsafeDares);
     }
@@ -88,10 +88,12 @@ export default function Truthordrink() {
     <div className="p-6 max-w-2xl mx-auto" id={styles.container}>
       <LanguageToggle />
       <div className="flex justify-center w-[100%]  mb-12">
-        <img
+        <Image
           id={styles.imageHeader}
           src="/Images/TruthOrDrink.png"
           width={500}
+          height={100}
+          alt=""
         />
       </div>
 

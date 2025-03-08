@@ -27,10 +27,13 @@ export default function Home() {
           </h1>
         </div>
         <div className="gameButtons">
-          <img
+          <Image
             className="gameButton"
             id="gameButton1"
             src="/Images/GuiltyAsCharged.png"
+            width={600}
+            height={100}
+            alt=""
             onClick={() => setSelectedGame("guiltyascharged")}
           />
           {selectedGame === "guiltyascharged" ? (
@@ -47,7 +50,9 @@ export default function Home() {
                       In <strong>Guilty as Charged</strong>, a question or
                       scenario will appear on the screen
                     </p>
-                    <p>(e.g., 'Who is most likely to skip a workout?').</p>
+                    <p>
+                      (e.g., &apos;Who is most likely to skip a workout?&apos;).
+                    </p>
                     <p>
                       Players will openly point to the person they think the
                       question applies to the most.
@@ -69,8 +74,8 @@ export default function Home() {
                       σενάριο θα εμφανιστεί στην οθόνη
                     </p>
                     <p>
-                      (π.χ., ' Ποιος είναι πιο πιθανό να παραλείψει την
-                      προπόνηση; ').
+                      (π.χ., &apos; Ποιος είναι πιο πιθανό να παραλείψει την
+                      προπόνηση; &apos;).
                     </p>
                     <p>
                       Οι παίκτες δείχνουν ανοιχτά το άτομο στο οποίο θεωρούν ότι
@@ -90,10 +95,13 @@ export default function Home() {
               }
             />
           ) : null}
-          <img
+          <Image
             className="gameButton"
             id="gameButton2"
             src="/Images/TruthOrDrink.png"
+            width={600}
+            height={100}
+            alt=""
             onClick={() => setSelectedGame("truthordrink")}
           />
           {selectedGame === "truthordrink" ? (
@@ -148,10 +156,13 @@ export default function Home() {
               }
             />
           ) : null}
-          <img
+          <Image
             className="gameButton"
             id="gameButton3"
             src="/Images/DrinkReaper.png"
+            width={600}
+            height={100}
+            alt=""
             onClick={() => setSelectedGame("drinkreaper")}
           />
           {selectedGame === "drinkreaper" ? (
@@ -171,13 +182,13 @@ export default function Home() {
                     <p>
                       A player starts by reading a statement like{" "}
                       <em>
-                        "Hand the device to the person who is most likely to be
-                        late to their own wedding."
+                        &apos;Hand the device to the person who is most likely
+                        to be late to their own wedding.&apos;
                       </em>
                     </p>
                     <p>
                       The device is then handed to the chosen person, who must
-                      take a sip as their "punishment."
+                      take a sip as their &apos;punishment.&apos;
                     </p>
                     <p>
                       That player then reads the next question and chooses who
@@ -193,13 +204,13 @@ export default function Home() {
                     <p>
                       Ένας παίκτης ξεκινά διαβάζοντας μια δήλωση όπως{" "}
                       <em>
-                        "Δώσε τη συσκευή στο άτομο που είναι πιο πιθανό να
-                        αργήσει στον ίδιο του τον γάμο."
+                        &apos;Δώσε τη συσκευή στο άτομο που είναι πιο πιθανό να
+                        αργήσει στον ίδιο του τον γάμο.&apos;
                       </em>
                     </p>
                     <p>
                       Η συσκευή δίνεται στο επιλεγμένο άτομο, το οποίο πρέπει να
-                      πιει μια γουλιά ως "τιμωρία."
+                      πιει μια γουλιά ως &apos;τιμωρία.&apos;
                     </p>
                     <p>
                       Ο παίκτης που πήρε τη συσκευή διαβάζει την επόμενη ερώτηση
