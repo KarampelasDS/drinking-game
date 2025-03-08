@@ -37,6 +37,26 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 70vh;
+  flex-direction: column;
+  font-size: 2rem;
+  gap: 2rem;
+}
+
+.contactparagraph {
+  text-align: center;
+  max-width: 100%;
+  font-size: 1.5rem;
+  border: 2px solid rgb(255, 0, 247);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
 .home {
   display: flex;
   align-items: center;
