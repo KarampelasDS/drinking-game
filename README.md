@@ -12,7 +12,7 @@ Each game mode fetches dynamic questions from a MongoDB backend to keep the game
 
 ## Demo
 
-[#](#)
+[You can play the game here!](https://bottoms-up-ds.vercel.app/truthordrink)
 
 ## Technologies Used
 
