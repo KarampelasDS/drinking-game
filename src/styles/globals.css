@@ -46,6 +46,7 @@ body {
   flex-direction: column;
   font-size: 2rem;
   gap: 2rem;
+  text-align: center;
 }
 
 .contactparagraph {

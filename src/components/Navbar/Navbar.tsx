@@ -46,22 +46,30 @@ export default function Navbar(props) {
                 : styles.homeLi
             }
           >
-            <Link href="/">Home</Link>
+            <Link href="/" onClick={closeSidebar}>
+              Home
+            </Link>
           </li>
           <li
             className={
               props.currentPage == "/gamemodes" ? styles.activeLink : ""
             }
           >
-            <Link href="/gamemodes">Gamemodes</Link>
+            <Link href="/gamemodes" onClick={closeSidebar}>
+              Gamemodes
+            </Link>
           </li>
           <li
             className={props.currentPage == "/contact" ? styles.activeLink : ""}
           >
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact" onClick={closeSidebar}>
+              Contact
+            </Link>
           </li>
           <li className={styles.accentLink}>
-            <Link href="/donate">Donate</Link>
+            <Link href="/donate" onClick={closeSidebar}>
+              Donate
+            </Link>
           </li>
         </ul>
         <div
