@@ -22,8 +22,8 @@ export default function PopUp(props) {
             className={styles.closeButton}
             onClick={props.closeFunction}
             src="/Images/close.svg"
-            width={100}
-            height={100}
+            width={40}
+            height={40}
             alt=""
           />
         </div>

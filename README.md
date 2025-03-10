@@ -1,6 +1,6 @@
-# Bottom's Up! - Web-Based Drinking Game
+# Bottoms Up! - Web-Based Drinking Game
 
-Welcome to **Bottom's Up!**, a fun and interactive drinking game built with **React** and **Next.js**. It includes multiple exciting modes for you and your friends to enjoy during social gatherings. Whether you're into group votes, truth or dare, or random challenges, this game has something for everyone!
+Welcome to **Bottoms Up!**, a fun and interactive drinking game built with **React** and **Next.js**. It includes multiple exciting modes for you and your friends to enjoy during social gatherings. Whether you're into group votes, truth or dare, or random challenges, this game has something for everyone!
 
 ## Features
 
@@ -12,7 +12,7 @@ Each game mode fetches dynamic questions from a MongoDB backend to keep the game
 
 ## Demo
 
-[You can play the game here!](https://bottoms-up-ds.vercel.app/truthordrink)
+[You can play the game here!](https://bottoms-up-ds.vercel.app)
 
 ## Technologies Used
 
@@ -20,20 +20,3 @@ Each game mode fetches dynamic questions from a MongoDB backend to keep the game
 - **Next.js** (Frontend Framework)
 - **MongoDB** (Database for questions)
 - **Vercel** (Hosting)
-
-## Getting Started
-
-To get started with **Bottom's Up!**, follow the instructions below to set up the project locally.
-
-### Prerequisites
-
-- **Node.js** (version 14 or higher)
-- **npm** (Node Package Manager)
-- **MongoDB** (If you're setting up the backend locally)
-
-### Installation
-
-1. Clone this repository:
-   ```bash
-   git clone ht
-   ```
