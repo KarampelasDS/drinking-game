@@ -44,15 +44,33 @@ export default function Drinkreaper() {
 
   const getRandom = () => {
     let question = "";
+    let questionsToDrawFrom = [];
+  
     if (!spicy) {
-      const safeQuestions = questions.filter((q) => q.spicy === false);
-      question =
-        safeQuestions[Math.floor(Math.random() * safeQuestions.length)];
+      questionsToDrawFrom = questions.filter((q) => q.spicy === false);
     } else {
-      question = questions[Math.floor(Math.random() * questions.length)];
+      questionsToDrawFrom = questions;
     }
-    setCurrentQuestion(question);
+  
+    if (questionsToDrawFrom.length > 0) {
+      const randomIndex = Math.floor(Math.random() * questionsToDrawFrom.length);
+      question = questionsToDrawFrom[randomIndex];
+  
+      // Remove the selected question from the original array
+      const questionIndexInOriginalArray = questions.findIndex(
+        (q) => q === question
+      );
+      if (questionIndexInOriginalArray > -1) {
+        questions.splice(questionIndexInOriginalArray, 1);
+      }
+  
+      setCurrentQuestion(question);
+    } else {
+      // Handle the case where there are no more questions
+      setCurrentQuestion({ text_en: "No more questions!", text_gr:"Δεν υπάρχουν άλλες ερωτήσεις!", spicy: false }); // Or whatever default state you prefer
+    }
   };
+  
 
   return (
     <div className="p-6 max-w-2xl mx-auto" id={styles.container}>

@@ -49,40 +49,70 @@ export default function Truthordrink() {
     const randomIndex = Math.floor(Math.random() * array.length);
     return array[randomIndex];
   };
-
+  
   const getTruth = () => {
-    let question = "";
+    let selectedQuestion = null;
+    let questionsToDrawFrom = [];
+  
     if (!spicy) {
-      const safeTruths = questions.filter(
+      questionsToDrawFrom = questions.filter(
         (q) => q.spicy === false && q.category === "truth"
       );
-      // Use truly random selection
-      question = getRandomQuestion(safeTruths);
     } else {
-      const unsafeTruths = questions.filter((q) => q.category === "truth");
-      // Use truly random selection
-      question = getRandomQuestion(unsafeTruths);
+      questionsToDrawFrom = questions.filter((q) => q.category === "truth");
     }
-    setCurrentQuestion(question);
+  
+    if (questionsToDrawFrom.length > 0) {
+      // Get a random question from the filtered list
+      selectedQuestion = getRandomQuestion(questionsToDrawFrom);
+  
+      // Find the index of the selected question in the original questions array
+      const questionIndexInOriginalArray = questions.findIndex(
+        (q) => q === selectedQuestion
+      );
+  
+      // Remove the selected question from the original questions array
+      if (questionIndexInOriginalArray > -1) {
+        questions.splice(questionIndexInOriginalArray, 1);
+      }
+    }
+  
+    setCurrentQuestion(selectedQuestion);
     setMode("truth");
   };
-
+  
   const getDare = () => {
-    let question = "";
+    let selectedQuestion = null;
+    let questionsToDrawFrom = [];
+  
     if (!spicy) {
-      const safeDares = questions.filter(
+      questionsToDrawFrom = questions.filter(
         (q) => q.spicy === false && q.category === "dare"
       );
-      // Use truly random selection
-      question = getRandomQuestion(safeDares);
     } else {
-      const unsafeDares = questions.filter((q) => q.category === "dare");
-      // Use truly random selection
-      question = getRandomQuestion(unsafeDares);
+      questionsToDrawFrom = questions.filter((q) => q.category === "dare");
     }
-    setCurrentQuestion(question);
+  
+    if (questionsToDrawFrom.length > 0) {
+      // Get a random question from the filtered list
+      selectedQuestion = getRandomQuestion(questionsToDrawFrom);
+  
+      // Find the index of the selected question in the original questions array
+      const questionIndexInOriginalArray = questions.findIndex(
+        (q) => q === selectedQuestion
+      );
+  
+      // Remove the selected question from the original questions array
+      if (questionIndexInOriginalArray > -1) {
+        questions.splice(questionIndexInOriginalArray, 1);
+      }
+    }
+  
+    setCurrentQuestion(selectedQuestion);
     setMode("dare");
   };
+  
+  
 
   return (
     <div className="p-6 max-w-2xl mx-auto" id={styles.container}>
@@ -152,13 +182,13 @@ export default function Truthordrink() {
                         className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
                         id={styles.currentQuestion}
                       >
-                        (Click the button to get a random question!)
+                        (No more Questions!)
                       </div>
                       <div
                         className={`p-3 bg-gray-100 rounded-md shadow-md text-black text-center ${styles.test}`}
                         id={styles.currentQuestion}
                       >
-                        (Πάτα το κουμπί για μια τυχαία ερώτηση!)
+                        (Δεν υπάρχουν άλλες ερωτήσεις!)
                       </div>
                     </>
                   ) : (
@@ -186,8 +216,8 @@ export default function Truthordrink() {
                   >
                     {currentQuestion == null
                       ? lang == "en"
-                        ? "(Click the button to get a random question!)"
-                        : "(Πάτα το κουμπί για μια τυχαία ερώτηση!)"
+                        ? "(No More Questions!)"
+                        : "(Δεν υπάρχουν άλλες ερωτήσεις!)"
                       : lang === "en"
                       ? currentQuestion.text_en
                       : currentQuestion.text_gr}
