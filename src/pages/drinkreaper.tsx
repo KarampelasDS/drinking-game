@@ -67,7 +67,7 @@ export default function Drinkreaper() {
       setCurrentQuestion(question);
     } else {
       // Handle the case where there are no more questions
-      setCurrentQuestion({ text_en: "No more questions!", text_gr:"Δεν υπάρχουν άλλες ερωτήσεις!", spicy: false }); // Or whatever default state you prefer
+      setCurrentQuestion({ text_en: "No more questions Left!", text_gr:"Δεν υπάρχουν άλλες ερωτήσεις!", spicy: false }); // Or whatever default state you prefer
     }
   };
   

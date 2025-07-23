@@ -216,7 +216,7 @@ export default function Truthordrink() {
                   >
                     {currentQuestion == null
                       ? lang == "en"
-                        ? "(No More Questions!)"
+                        ? "(No More Questions Left!)"
                         : "(Δεν υπάρχουν άλλες ερωτήσεις!)"
                       : lang === "en"
                       ? currentQuestion.text_en
